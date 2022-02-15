@@ -15,6 +15,8 @@ import net.wrelf.betterwynnspell.inputs.KeyInputHandler;
 import net.wrelf.betterwynnspell.proxy.ClientProxy;
 import net.wrelf.betterwynnspell.proxy.CommonProxy;
 
+import java.awt.*;
+
 @Mod(
         modid = BetterWynnSpell.MOD_ID,
         name = BetterWynnSpell.MOD_NAME,
@@ -29,6 +31,16 @@ public class BetterWynnSpell {
     @Mod.Instance(MOD_ID)
     public static BetterWynnSpell INSTANCE;
 
+    public static Robot WrelfyBWSModRobot;
+
+    static {
+        try {
+            WrelfyBWSModRobot = new Robot();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static final String CLIENT_PROXY = "net.wrelf.betterwynnspell.proxy.ClientProxy";
 
     @SidedProxy(clientSide = CLIENT_PROXY)
@@ -42,7 +54,7 @@ public class BetterWynnSpell {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
-        //EventManager.registerHandler();
+        EventManager.registerHandler();
     }
 
     @Mod.EventHandler

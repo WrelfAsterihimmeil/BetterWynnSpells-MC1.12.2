@@ -8,31 +8,44 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.wrelf.betterwynnspell.BetterWynnSpell;
 import net.wrelf.betterwynnspell.proxy.ClientProxy;
 import org.lwjgl.input.Keyboard;
 import net.minecraft.client.settings.KeyBinding;
 
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 public class KeyInputHandler {
-    @SubscribeEvent
-    public void onTickKeyCheck(TickEvent.ClientTickEvent event)
-    {
-        KeyBinding[] keyBinds = ClientProxy.keyBindings;
-
-        if (keyBinds[0].isPressed()) {
-
-        }
-        if (keyBinds[1].isPressed()) {
-
-        }
-        if (keyBinds[2].isPressed()) {
-
-        }
+    public KeyInputHandler(){
+        prevKeyStates = new boolean[7];
+        keyStates = new boolean[7];
     }
 
+    @SubscribeEvent
+    public void onTickKeyCheck(TickEvent.ClientTickEvent event) {
+        KeyBinding[] keyBinds = ClientProxy.keyBindings;
 
-    public static KeyBinding[]  keyBindings;
+        for(int i = 0; i < keyStates.length; i ++)
+        {
+            keyStates[i] = keyBinds[i].isPressed();
+        }
+
+        if (keyStates[0] && !prevKeyStates[0]) {
+            ClickPerformer.PerformAttack();
+        }
+
+        if (keyStates[1] && !prevKeyStates[1]) {
+            ClickPerformer.PerformUse();
+        }
+
+        for(int i = 0; i < keyStates.length; i ++)
+        {
+            prevKeyStates[i] = keyStates[i];
+        }
+    }
+    public static boolean[] keyStates;
+    public static boolean[] prevKeyStates;
 }
 
 
