@@ -1,12 +1,24 @@
 package net.wrelf.betterwynnspell.proxy;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.wrelf.betterwynnspell.Events.EventManager;
+import net.wrelf.betterwynnspell.inputs.MouseClickDisabler;
+import net.wrelf.betterwynnspell.inputs.MouseRightClickDisabler;
 import org.lwjgl.input.Keyboard;
 
+@SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy{
     public static KeyBinding[] keyBindings;
+    public static MouseClickDisabler attackKeyDisabler = new MouseClickDisabler(Minecraft.getMinecraft().gameSettings.keyBindAttack);
+    public static MouseRightClickDisabler useKeyDisabler = new MouseRightClickDisabler(Minecraft.getMinecraft().gameSettings.keyBindUseItem);
+
+
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
@@ -23,6 +35,11 @@ public class ClientProxy extends CommonProxy{
         for (KeyBinding keyBinding : keyBindings) {
             ClientRegistry.registerKeyBinding(keyBinding);
         }
+
+        Minecraft.getMinecraft().gameSettings.keyBindAttack = attackKeyDisabler;
+        Minecraft.getMinecraft().gameSettings.keyBindUseItem = useKeyDisabler;
+
+        EventManager.registerHandler();
     }
 
 }

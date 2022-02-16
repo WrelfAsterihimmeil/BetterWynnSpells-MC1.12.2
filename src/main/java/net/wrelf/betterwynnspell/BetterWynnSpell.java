@@ -54,7 +54,6 @@ public class BetterWynnSpell {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
-        EventManager.registerHandler();
     }
 
     @Mod.EventHandler
