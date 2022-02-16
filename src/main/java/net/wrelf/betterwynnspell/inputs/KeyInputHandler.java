@@ -25,14 +25,6 @@ public class KeyInputHandler {
             keyStates[i] = keyBinds[i].isKeyDown();
         }
 
-        try {
-            Minecraft.getMinecraft().player.sendMessage(new TextComponentString("State[0] = " + (keyStates[0] ? "True" : "False") + "PrevState[0] = " + (prevKeyStates[0] ? "True" : "False")));
-        }
-        catch (NullPointerException e)
-        {
-
-        }
-
         if (keyStates[0] && !prevKeyStates[0]) {
             SpellQueue.QueueSpell(1);
         }
