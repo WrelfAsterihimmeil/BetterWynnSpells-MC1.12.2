@@ -1,20 +1,14 @@
 package net.wrelf.betterwynnspell.inputs;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.text.ChatType;
-import net.minecraft.util.text.Style;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.wrelf.betterwynnspell.BetterWynnSpell;
+import net.wrelf.betterwynnspell.SpellMacro.ClickPerformer;
+import net.wrelf.betterwynnspell.SpellMacro.SpellQueue;
 import net.wrelf.betterwynnspell.proxy.ClientProxy;
-import org.lwjgl.input.Keyboard;
 import net.minecraft.client.settings.KeyBinding;
-
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
 
 public class KeyInputHandler {
     public KeyInputHandler(){
@@ -28,15 +22,31 @@ public class KeyInputHandler {
 
         for(int i = 0; i < keyStates.length; i ++)
         {
-            keyStates[i] = keyBinds[i].isPressed();
+            keyStates[i] = keyBinds[i].isKeyDown();
+        }
+
+        try {
+            Minecraft.getMinecraft().player.sendMessage(new TextComponentString("State[0] = " + (keyStates[0] ? "True" : "False") + "PrevState[0] = " + (prevKeyStates[0] ? "True" : "False")));
+        }
+        catch (NullPointerException e)
+        {
+
         }
 
         if (keyStates[0] && !prevKeyStates[0]) {
-            ClickPerformer.PerformAttack();
+            SpellQueue.QueueSpell(1);
         }
 
         if (keyStates[1] && !prevKeyStates[1]) {
-            ClickPerformer.PerformUse();
+            SpellQueue.QueueSpell(2);
+        }
+
+        if (keyStates[2] && !prevKeyStates[2]) {
+            SpellQueue.QueueSpell(3);
+        }
+
+        if (keyStates[3] && !prevKeyStates[3]) {
+            SpellQueue.QueueSpell(4);
         }
 
         for(int i = 0; i < keyStates.length; i ++)
