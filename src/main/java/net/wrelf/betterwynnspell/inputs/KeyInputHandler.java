@@ -25,6 +25,7 @@ public class KeyInputHandler {
             keyStates[i] = keyBinds[i].isKeyDown();
         }
 
+        //Queue Spell
         if (keyStates[0] && !prevKeyStates[0]) {
             SpellQueue.QueueSpell(1);
         }
@@ -41,6 +42,24 @@ public class KeyInputHandler {
             SpellQueue.QueueSpell(4);
         }
 
+        //Detect Key Release
+        if (!keyStates[0] && prevKeyStates[0]) {
+            SpellQueue.ReleaseKey();
+        }
+
+        if (!keyStates[1] && prevKeyStates[1]) {
+            SpellQueue.ReleaseKey();
+        }
+
+        if (!keyStates[2] && prevKeyStates[2]) {
+            SpellQueue.ReleaseKey();
+        }
+
+        if (!keyStates[3] && prevKeyStates[3]) {
+            SpellQueue.ReleaseKey();
+        }
+
+        //Other Keys
         for(int i = 0; i < keyStates.length; i ++)
         {
             prevKeyStates[i] = keyStates[i];

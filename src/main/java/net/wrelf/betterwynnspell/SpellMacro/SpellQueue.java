@@ -62,6 +62,18 @@ public class SpellQueue {
                 break;
             }
         }
+        isHolding = true;
     }
 
+    public static void ReleaseKey() {
+        isHolding = false;
+    }
+
+
+
+    private static boolean isHolding = false;
+
+    public static boolean IsHolding() {
+        return isHolding;
+    }
 }

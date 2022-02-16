@@ -20,7 +20,15 @@ public class ClickDelay {
                 return;
             }
 
+            if(SpellQueue.clickQueue.peek() == null && SpellQueue.IsHolding())
+            {
+                delayTick--;
+                SpellQueue.clickQueue.add((ClickType) ctp);
+                return;
+            }
+
             if(ctp == ClickType.LeftClick)
+
                 ClickPerformer.PerformAttack();
             else
                 ClickPerformer.PerformUse();
