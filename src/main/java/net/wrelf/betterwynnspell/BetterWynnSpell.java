@@ -1,18 +1,10 @@
 package net.wrelf.betterwynnspell;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.wrelf.betterwynnspell.Events.EventManager;
-import net.wrelf.betterwynnspell.inputs.KeyInputHandler;
-import net.wrelf.betterwynnspell.proxy.ClientProxy;
 import net.wrelf.betterwynnspell.proxy.CommonProxy;
 
 import java.awt.*;

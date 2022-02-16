@@ -1,15 +1,10 @@
 package net.wrelf.betterwynnspell.inputs;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.wrelf.betterwynnspell.SpellMacro.ClickPerformer;
 import net.wrelf.betterwynnspell.SpellMacro.SpellQueue;
 import net.wrelf.betterwynnspell.proxy.ClientProxy;
-import net.minecraft.client.settings.KeyBinding;
 
 public class KeyInputHandler {
     public KeyInputHandler(){

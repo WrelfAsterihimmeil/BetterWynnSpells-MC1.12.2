@@ -5,9 +5,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.wrelf.betterwynnspell.Ref;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 public class ClickDelay {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
