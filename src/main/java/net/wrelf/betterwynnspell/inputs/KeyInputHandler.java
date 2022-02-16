@@ -56,6 +56,12 @@ public class KeyInputHandler {
         }
 
         //Other Keys
+        if(keyStates[4] && !prevKeyStates[4]) {
+            SpellQueue.clickQueue.clear();
+            SpellQueue.ReleaseKey();
+        }
+
+        //Saving key states
         for(int i = 0; i < keyStates.length; i ++)
         {
             prevKeyStates[i] = keyStates[i];
