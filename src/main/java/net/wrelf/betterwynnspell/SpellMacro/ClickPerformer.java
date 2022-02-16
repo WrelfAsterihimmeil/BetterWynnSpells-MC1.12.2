@@ -1,4 +1,4 @@
-package net.wrelf.betterwynnspell.inputs;
+package net.wrelf.betterwynnspell.SpellMacro;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
