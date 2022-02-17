@@ -1,6 +1,7 @@
 package net.wrelf.betterwynnspell.proxy;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -21,15 +22,14 @@ public class ClientProxy extends CommonProxy{
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
-        keyBindings = new KeyBinding[7];
+        keyBindings = new KeyBinding[6];
 
-        keyBindings[0] = new KeyBinding("betterwynnspell.key.cast1st", Keyboard.KEY_Z, "key.betterwynnspell.category");
-        keyBindings[1] = new KeyBinding("betterwynnspell.key.cast2nd", Keyboard.KEY_X, "key.betterwynnspell.category");
-        keyBindings[2] = new KeyBinding("betterwynnspell.key.cast3rd", Keyboard.KEY_C, "key.betterwynnspell.category");
-        keyBindings[3] = new KeyBinding("betterwynnspell.key.cast4th", Keyboard.KEY_V, "key.betterwynnspell.category");
-        keyBindings[4] = new KeyBinding("betterwynnspell.key.clearQueue", Keyboard.KEY_R, "key.betterwynnspell.category");
-        keyBindings[5] = new KeyBinding("betterwynnspell.key.openConfig", Keyboard.KEY_SEMICOLON, "key.betterwynnspell.category");
-        keyBindings[6] = new KeyBinding("betterwynnspell.key.toggleArcher", Keyboard.KEY_NUMPAD0, "key.betterwynnspell.category");
+        keyBindings[0] = new KeyBinding(I18n.format("betterwynnspell.key.cast1st"), Keyboard.KEY_Z, I18n.format("betterwynnspell.key.category"));
+        keyBindings[1] = new KeyBinding(I18n.format("betterwynnspell.key.cast2nd"), Keyboard.KEY_X, I18n.format("betterwynnspell.key.category"));
+        keyBindings[2] = new KeyBinding(I18n.format("betterwynnspell.key.cast3rd"), Keyboard.KEY_C, I18n.format("betterwynnspell.key.category"));
+        keyBindings[3] = new KeyBinding(I18n.format("betterwynnspell.key.cast4th"), Keyboard.KEY_V, I18n.format("betterwynnspell.key.category"));
+        keyBindings[4] = new KeyBinding(I18n.format("betterwynnspell.key.clearQueue"), Keyboard.KEY_R, I18n.format("betterwynnspell.key.category"));
+        keyBindings[5] = new KeyBinding(I18n.format("betterwynnspell.key.toggleArcher"), Keyboard.KEY_NUMPAD0, I18n.format("betterwynnspell.key.category"));
 
         for (KeyBinding keyBinding : keyBindings) {
             ClientRegistry.registerKeyBinding(keyBinding);

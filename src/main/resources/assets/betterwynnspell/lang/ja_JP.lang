@@ -1,0 +1,15 @@
+betterwynnspell.config.delay=クリックの間隔(単位 ticks)
+betterwynnspell.config.delay.desc=１クリックごとの時間(単位はtick) 例：2でCPS10、4でCPS5の速度
+betterwynnspell.config.mousedisabler=スペル使用中はクリックを無効化
+betterwynnspell.config.mousedisabler.desc=TRUEならスペルマクロ実行中はプレイヤーのクリックを無効化する
+betterwynnspell.config.chargemode=長押し中はスペル発動を待つ
+betterwynnspell.config.chargemode.desc=TRUEならスペル発動キーが長押しされると離すまで3個目のクリックを待つ
+
+betterwynnspell.key.category=Better Wynn Spell
+
+betterwynnspell.key.cast1st=1st Spellを使用
+betterwynnspell.key.cast2nd=2nd Spellを使用
+betterwynnspell.key.cast3rd=3rd Spellを使用
+betterwynnspell.key.cast4th=4th Spellを使用
+betterwynnspell.key.clearQueue=スペルキューをリセット
+betterwynnspell.key.toggleArcher=アーチャーモード切り替え

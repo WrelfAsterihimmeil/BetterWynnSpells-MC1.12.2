@@ -9,17 +9,17 @@ import net.wrelf.betterwynnspell.BetterWynnSpell;
 
 @Config(modid = BetterWynnSpell.MOD_ID, type = Config.Type.INSTANCE)
 public class BWSConfig {
-    @Config.RangeInt(min = 1)
+    @Config.RangeInt(min = 2, max = 20)
     @Config.LangKey("betterwynnspell.config.delay")
-    @Config.Comment("betterwynnspell.config.delay.desc")
-    public static int DelayBetweenClicks = 4;
+    @Config.Comment("How many ticks it takes per click. i.e. 2 for 10 cps, 4 for 5 cps.")
+    public static int DelayBetweenClicks = 3;
 
     @Config.LangKey("betterwynnspell.config.mousedisabler")
-    @Config.Comment("betterwynnspell.config.mousedisabler.desc")
+    @Config.Comment("If true, your clicks will be ignored while this mod is casting a spell(s)")
     public static boolean EnableMouseDisabler = true;
 
     @Config.LangKey("betterwynnspell.config.chargemode")
-    @Config.Comment("betterwynnspell.config.chargemode.desc")
+    @Config.Comment("If true, third click for the spell will not be triggered until you release cast spell key.")
     public static boolean EnableChargeMode = true;
 
     @Mod.EventBusSubscriber(modid = BetterWynnSpell.MOD_ID)

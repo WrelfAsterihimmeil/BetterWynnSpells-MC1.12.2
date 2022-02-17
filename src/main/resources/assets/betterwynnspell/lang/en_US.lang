@@ -1,0 +1,15 @@
+betterwynnspell.config.delay=Click Delay Ticks
+betterwynnspell.config.delay.desc=How many ticks it takes per click. i.e. 2 for 10 cps, 4 for 5 cps.
+betterwynnspell.config.mousedisabler=Prevent Clicking While Casting Spell
+betterwynnspell.config.mousedisabler.desc=If TRUE, your clicks will be ignored while this mod is casting a spell(s)
+betterwynnspell.config.chargemode=Hold Cast to Wait 3rd Click
+betterwynnspell.config.chargemode.desc=If TRUE, third click for the spell will not be triggered until you release cast spell key.
+
+betterwynnspell.key.category=Better Wynn Spell
+
+betterwynnspell.key.cast1st=Cast 1st Spell
+betterwynnspell.key.cast2nd=Cast 2nd Spell
+betterwynnspell.key.cast3rd=Cast 3rd Spell
+betterwynnspell.key.cast4th=Cast 4th Spell
+betterwynnspell.key.clearQueue=Clear Spell Queue
+betterwynnspell.key.toggleArcher=Toggle Archer Mode

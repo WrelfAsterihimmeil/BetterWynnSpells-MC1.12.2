@@ -9,8 +9,8 @@ import net.wrelf.betterwynnspell.proxy.ClientProxy;
 
 public class KeyInputHandler {
     public KeyInputHandler(){
-        prevKeyStates = new boolean[7];
-        keyStates = new boolean[7];
+        prevKeyStates = new boolean[6];
+        keyStates = new boolean[6];
     }
 
     @SubscribeEvent()
@@ -62,7 +62,7 @@ public class KeyInputHandler {
             SpellQueue.ReleaseKey();
         }
 
-        if(keyStates[6] && !prevKeyStates[6]) {
+        if(keyStates[5] && !prevKeyStates[5]) {
             Ref.isArcher = !Ref.isArcher;
         }
 
