@@ -3,6 +3,8 @@ package net.wrelf.betterwynnspell.inputs;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.wrelf.betterwynnspell.BetterWynnSpell;
+import net.wrelf.betterwynnspell.Config.BWSConfig;
 import net.wrelf.betterwynnspell.SpellMacro.ClickDelay;
 import net.wrelf.betterwynnspell.SpellMacro.ClickType;
 import net.wrelf.betterwynnspell.SpellMacro.SpellQueue;
@@ -16,7 +18,7 @@ public class MouseRightClickDisabler extends KeyBinding {
 
     @Override
     public boolean isPressed() {
-        if(ClickDelay.clickOnThisTick == ClickType.RightClick) {
+        if(!BWSConfig.EnableMouseDisabler || ClickDelay.clickOnThisTick == ClickType.RightClick) {
             return super.isPressed();
         }
 
@@ -29,7 +31,7 @@ public class MouseRightClickDisabler extends KeyBinding {
 
     @Override
     public boolean isKeyDown() {
-        if(SpellQueue.clickQueue.peek()!= null){
+        if(BWSConfig.EnableMouseDisabler && SpellQueue.clickQueue.peek()!= null){
             super.isKeyDown();
             return false;
         }

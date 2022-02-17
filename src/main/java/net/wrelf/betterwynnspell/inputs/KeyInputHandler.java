@@ -3,6 +3,7 @@ package net.wrelf.betterwynnspell.inputs;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.wrelf.betterwynnspell.Ref;
 import net.wrelf.betterwynnspell.SpellMacro.SpellQueue;
 import net.wrelf.betterwynnspell.proxy.ClientProxy;
 
@@ -59,6 +60,10 @@ public class KeyInputHandler {
         if(keyStates[4] && !prevKeyStates[4]) {
             SpellQueue.clickQueue.clear();
             SpellQueue.ReleaseKey();
+        }
+
+        if(keyStates[6] && !prevKeyStates[6]) {
+            Ref.isArcher = !Ref.isArcher;
         }
 
         //Saving key states

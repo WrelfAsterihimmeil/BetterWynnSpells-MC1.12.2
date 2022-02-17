@@ -3,6 +3,8 @@ package net.wrelf.betterwynnspell.SpellMacro;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.wrelf.betterwynnspell.BetterWynnSpell;
+import net.wrelf.betterwynnspell.Config.BWSConfig;
 import net.wrelf.betterwynnspell.Ref;
 
 public class ClickDelay {
@@ -13,14 +15,14 @@ public class ClickDelay {
         if (event.phase == TickEvent.Phase.START) {
             delayTick++;
             clickOnThisTick = ClickType.NoClick;
-            if (delayTick >= Ref.tickBetweenClicks) {
+            if (delayTick >= BWSConfig.DelayBetweenClicks) {
                 Object ctp = SpellQueue.clickQueue.poll();
                 if (ctp == null) {
                     delayTick--;
                     return;
                 }
 
-                if (SpellQueue.clickQueue.peek() == null && SpellQueue.IsHolding()) {
+                if (BWSConfig.EnableChargeMode && SpellQueue.clickQueue.peek() == null && SpellQueue.IsHolding()) {
                     delayTick--;
                     SpellQueue.clickQueue.add((ClickType) ctp);
                     return;
